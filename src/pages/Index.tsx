@@ -3,11 +3,11 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
 // Реальные фото объекта
-const TIZER_IMG        = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5031d015-d9e3-4f90-bdc8-7d75ee0c94db.PNG';
+const TIZER_IMG        = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/d071a83d-77e9-4fd1-a637-28f45f6992e9.PNG';
 const MEETING_IMG      = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5bdab066-7128-4411-9e59-3a48401f2599.PNG';
 const OFFICE_IMG       = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/031c5641-f2fa-4b18-a6f7-ff94706695ed.PNG';
 const CORRIDOR_IMG     = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/af78b587-6fd5-4cb6-9b8b-5b0ee78353cd.PNG';
-const FLOOR_PLAN_IMG   = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/a6354a7d-0b4f-49d4-93c2-20a43e3a4eb2.png';
+const FLOOR_PLAN_IMG   = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/8db92a72-90a5-454c-9468-6f781de3bf8a.jpg';
 
 // Офисы из финмодели — план продаж
 const SALES_PLAN = [
@@ -45,6 +45,8 @@ export default function Index() {
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
+  const printPDF = () => window.print();
+
   return (
     <div className="bg-background text-foreground overflow-x-hidden">
 
@@ -69,12 +71,22 @@ export default function Index() {
               <p className="text-[9px] text-muted-foreground tracking-[0.3em] uppercase">Инвестиции в недвижимость</p>
             </div>
           </div>
-          <Button
-            onClick={() => scrollTo('terms')}
-            className="gold-gradient text-black hover:opacity-90 font-sans tracking-wide text-sm rounded-none px-6"
-          >
-            Условия входа
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button
+              onClick={printPDF}
+              variant="outline"
+              className="border-gold/40 text-gold hover:bg-gold/10 font-sans tracking-wide text-sm rounded-none px-4 no-print"
+            >
+              <Icon name="Download" size={14} className="mr-1.5" />
+              PDF
+            </Button>
+            <Button
+              onClick={() => scrollTo('terms')}
+              className="gold-gradient text-black hover:opacity-90 font-sans tracking-wide text-sm rounded-none px-6"
+            >
+              Условия входа
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -82,7 +94,7 @@ export default function Index() {
       <section id="hero" className="relative min-h-screen flex items-center grain overflow-hidden">
         {/* Тизер как фон */}
         <div className="absolute inset-0">
-          <img src={TIZER_IMG} alt="Орликов пер. 5" className="w-full h-full object-cover object-top" />
+          <img src={TIZER_IMG} alt="Орликов пер. д.3 стр.1" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/50" />
         </div>
@@ -100,7 +112,7 @@ export default function Index() {
 
             <h1 className="font-display font-600 leading-[0.9] text-[clamp(3.5rem,10vw,7rem)] mb-2">
               ОРЛИКОВ<br />
-              <span className="gold-text-gradient italic">Пер., 5</span>
+              <span className="gold-text-gradient italic">Пер., 3/1</span>
             </h1>
 
             <p className="font-display text-xl text-gold tracking-wide mb-8 mt-4">
@@ -135,15 +147,13 @@ export default function Index() {
                 <Icon name="ArrowRight" size={16} className="ml-2 group-hover:translate-x-1 transition" />
               </Button>
               <Button
+                onClick={printPDF}
                 size="lg"
                 variant="outline"
                 className="border-gold/40 text-gold hover:bg-gold/10 font-sans tracking-wide rounded-none"
-                asChild
               >
-                <a href="https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5031d015-d9e3-4f90-bdc8-7d75ee0c94db.PNG" target="_blank" rel="noopener noreferrer">
-                  <Icon name="Download" size={16} className="mr-2" />
-                  Скачать презентацию
-                </a>
+                <Icon name="Download" size={16} className="mr-2" />
+                Скачать PDF
               </Button>
             </div>
           </div>
@@ -160,7 +170,7 @@ export default function Index() {
           <div className="reveal space-y-4">
             {[
               { icon: 'Train',    t: 'м. Красные ворота', d: 'Сокольническая линия — 5 минут пешком' },
-              { icon: 'MapPin',   t: 'Орликов переулок, 5', d: 'Центральный административный округ, Москва' },
+              { icon: 'MapPin',   t: 'Орликов переулок, д.3 стр.1', d: 'Центральный административный округ, Москва' },
               { icon: 'Landmark', t: 'Деловое окружение', d: 'Три вокзала, Садовое кольцо, офисы класса А/B' },
               { icon: 'TrendingUp', t: 'Дефицит малых офисов', d: 'Устойчивый спрос — ставки аренды растут' },
             ].map((it) => (
@@ -180,11 +190,11 @@ export default function Index() {
               title="Карта"
               className="w-full h-full"
               style={{ filter: 'invert(0.88) hue-rotate(180deg) saturate(0.6) brightness(0.95)' }}
-              src="https://yandex.ru/map-widget/v1/?ll=37.6447%2C55.7694&z=16&pt=37.6447,55.7694,pm2rdm"
+              src="https://yandex.ru/map-widget/v1/?ll=37.6512%2C55.7706&z=17&pt=37.6512,55.7706,pm2rdm"
               loading="lazy"
             />
             <div className="absolute top-4 left-4 bg-black/90 backdrop-blur border border-gold/40 px-4 py-2">
-              <p className="font-display font-600 text-gold tracking-widest text-sm">ОРЛИКОВ ПЕР., 5</p>
+              <p className="font-display font-600 text-gold tracking-widest text-sm">ОРЛИКОВ ПЕР., Д.3 СТР.1</p>
               <p className="text-[9px] text-muted-foreground tracking-widest font-sans uppercase">Красные ворота · 5 мин</p>
             </div>
           </div>
@@ -312,7 +322,7 @@ export default function Index() {
           <div className="border border-gold/30 overflow-hidden bg-white p-2">
             <img
               src={FLOOR_PLAN_IMG}
-              alt="Поэтажный план Орликов пер. 5"
+              alt="Поэтажный план Орликов пер. д.3 стр.1"
               className="w-full h-auto"
             />
           </div>
@@ -563,13 +573,11 @@ export default function Index() {
               ))}
             </div>
             <Button
+              onClick={printPDF}
               className="w-full gold-gradient text-black hover:opacity-90 font-sans tracking-wide rounded-none"
-              asChild
             >
-              <a href="https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5031d015-d9e3-4f90-bdc8-7d75ee0c94db.PNG" target="_blank" rel="noopener noreferrer">
-                <Icon name="Download" size={14} className="mr-2" />
-                Скачать полную презентацию
-              </a>
+              <Icon name="Download" size={14} className="mr-2" />
+              Скачать PDF-презентацию
             </Button>
           </div>
 
@@ -623,7 +631,7 @@ export default function Index() {
         <div className="h-px w-full gold-gradient opacity-60" />
         <div className="container relative z-10 py-24 text-center">
           <div className="reveal max-w-2xl mx-auto">
-            <span className="text-[9px] tracking-[0.35em] text-gold/70 font-sans uppercase">AMI Group · Орликов пер., 5</span>
+            <span className="text-[9px] tracking-[0.35em] text-gold/70 font-sans uppercase">AMI Group · Орликов пер., д.3 стр.1</span>
             <h2 className="font-display font-600 text-[clamp(2.5rem,6vw,4.5rem)] mt-5 mb-4 leading-[1.05] italic">
               Инвестируйте<br />
               <span className="gold-text-gradient">в готовый арендный бизнес</span>
@@ -633,11 +641,9 @@ export default function Index() {
               24,5% годовых, ROI 20,39%, срок реализации — 5 месяцев.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="gold-gradient text-black hover:opacity-90 font-sans tracking-wide rounded-none" asChild>
-                <a href="https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5031d015-d9e3-4f90-bdc8-7d75ee0c94db.PNG" target="_blank" rel="noopener noreferrer">
-                  <Icon name="Download" size={16} className="mr-2" />
-                  Скачать презентацию
-                </a>
+              <Button onClick={printPDF} size="lg" className="gold-gradient text-black hover:opacity-90 font-sans tracking-wide rounded-none">
+                <Icon name="Download" size={16} className="mr-2" />
+                Скачать PDF
               </Button>
               <Button size="lg" variant="outline" className="border-gold/40 text-gold hover:bg-gold/10 font-sans tracking-wide rounded-none">
                 <Icon name="Phone" size={16} className="mr-2" />
@@ -652,7 +658,7 @@ export default function Index() {
           <div className="container py-5 grid md:grid-cols-3 gap-4 text-[10px] text-muted-foreground tracking-wider font-sans">
             <div className="flex items-center gap-2">
               <Icon name="MapPin" size={12} className="text-gold" />
-              <span>Орликов пер., 5 · м. Красные Ворота — 5 мин.</span>
+              <span>Орликов пер., д.3 стр.1 · м. Красные Ворота — 5 мин.</span>
             </div>
             <div className="flex items-center gap-2 md:justify-center">
               <Icon name="FileCheck" size={12} className="text-gold" />
