@@ -161,14 +161,28 @@
 @media print {
   @page {
     size: A4 landscape;
-    margin: 8mm 12mm;
+    margin: 6mm 10mm;
   }
 
-  /* Скрываем навигацию и служебные элементы */
+  /* Разрешаем печать цветных фонов */
+  html,
+  body {
+    background: #0d0d0d !important;
+    color: #e8e0d0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Скрываем навигацию, шапку, кнопки */
   header,
   nav,
   .no-print,
-  button.absolute {
+  button {
+    display: none !important;
+  }
+
+  /* Секция карты — полностью скрыть при печати */
+  #map {
     display: none !important;
   }
 
@@ -178,23 +192,15 @@
     transform: none !important;
   }
 
-  /* Сохраняем тёмный стиль */
-  html,
-  body {
-    background: #0d0d0d !important;
-    color: #e8e0d0 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  /* Каждая секция — отдельная страница */
+  /* Каждая секция — своя страница, без лишних отступов */
   section {
     page-break-after: always;
     break-after: page;
     page-break-inside: avoid;
     break-inside: avoid;
-    min-height: 0 !important;
-    padding: 24px 0 !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+    margin: 0 !important;
   }
 
   section:last-of-type {
@@ -204,49 +210,65 @@
   /* Контейнер — полная ширина */
   .container {
     max-width: 100% !important;
-    padding: 0 8px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
   }
 
-  /* Карта — скрыть iframe, показать только адресную карточку */
+  /* Убираем iframe карты */
   iframe {
     display: none !important;
   }
 
-  /* Сетки на печати */
-  .grid {
-    display: grid !important;
-  }
-
-  /* Фиксируем фоновые цвета карточек */
+  /* Карточки */
   .bg-card,
   .bg-black {
     background: #111 !important;
-    border: 1px solid #333 !important;
+    border: 1px solid #2a2a2a !important;
   }
 
-  /* Золотой текст — сохранить */
+  /* Золотой градиент */
   .gold-text-gradient {
     background: linear-gradient(135deg, #c9a84c, #f0d080) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
   }
 
-  /* Кнопки скрыть */
-  button,
-  a[role="button"] {
-    display: none !important;
+  /* Золотой градиент для фонов (кнопки, иконки) */
+  .gold-gradient {
+    background: linear-gradient(135deg, #c9a84c, #f0d080) !important;
   }
 
-  /* Изображения — не разрывать */
+  /* Изображения — компактно */
   img {
     page-break-inside: avoid;
     break-inside: avoid;
-    max-height: 280px !important;
+    max-height: 260px !important;
     object-fit: contain !important;
   }
 
-  /* Поэтажный план — чуть больше места */
+  /* Поэтажный план — шире */
   #floor-plan img {
-    max-height: 360px !important;
+    max-height: 340px !important;
+    object-fit: contain !important;
+  }
+
+  /* Убираем grain-текстуру и лишние псевдо-элементы */
+  .grain::after {
+    display: none !important;
+  }
+
+  /* Убираем пустые отступы секций */
+  .py-20 {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  /* Заголовки секций — компактнее */
+  .mb-12 {
+    margin-bottom: 16px !important;
+  }
+
+  .mb-8 {
+    margin-bottom: 12px !important;
   }
 }

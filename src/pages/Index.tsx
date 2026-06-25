@@ -7,7 +7,7 @@ const TIZER_IMG        = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b0
 const MEETING_IMG      = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5bdab066-7128-4411-9e59-3a48401f2599.PNG';
 const OFFICE_IMG       = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/031c5641-f2fa-4b18-a6f7-ff94706695ed.PNG';
 const CORRIDOR_IMG     = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/af78b587-6fd5-4cb6-9b8b-5b0ee78353cd.PNG';
-const FLOOR_PLAN_IMG   = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/8db92a72-90a5-454c-9468-6f781de3bf8a.jpg';
+const FLOOR_PLAN_IMG   = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/a519303d-01cf-4adc-9539-228acebc69f9.png';
 
 // Офисы из финмодели — план продаж
 const SALES_PLAN = [
@@ -212,11 +212,11 @@ export default function Index() {
             </div>
             <p className="font-display font-600 text-2xl tracking-wide mb-2">Инвестор в проект</p>
             <p className="text-xs text-muted-foreground leading-relaxed font-sans mb-4">
-              Финансирует проект полностью. Зарабатывает на росте стоимости объекта: здание покупается «вчерне», а после раскадастрирования (выделения отдельных кадастровых номеров) и дооснащения офисов их суммарная рыночная цена значительно превышает стоимость покупки — отсюда ROI 20,39% ещё до получения арендных платежей.
+              Полностью финансирует реализацию проекта и получает доход за счёт роста капитализации актива. Объект приобретается на этапе минимальной стоимости, а после разделения на самостоятельные лоты и подготовки офисных помещений его совокупная рыночная цена существенно возрастает. Потенциальная доходность 24,5% годовых ещё до начала получения арендного дохода.
             </p>
             <div className="flex items-center gap-2 text-xs font-sans text-gold">
               <Icon name="Check" size={12} />
-              <span>Условия входа — полное финансирование проекта (417,4 млн ₽)</span>
+              <span>Условия участия — полное финансирование проекта (417,4 млн ₽)</span>
             </div>
           </div>
           <div className="p-6 bg-black border border-border relative overflow-hidden">
