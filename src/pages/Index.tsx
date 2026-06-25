@@ -135,12 +135,15 @@ export default function Index() {
                 <Icon name="ArrowRight" size={16} className="ml-2 group-hover:translate-x-1 transition" />
               </Button>
               <Button
-                onClick={() => scrollTo('final')}
                 size="lg"
                 variant="outline"
                 className="border-gold/40 text-gold hover:bg-gold/10 font-sans tracking-wide rounded-none"
+                asChild
               >
-                Запросить презентацию
+                <a href="https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5031d015-d9e3-4f90-bdc8-7d75ee0c94db.PNG" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Download" size={16} className="mr-2" />
+                  Скачать презентацию
+                </a>
               </Button>
             </div>
           </div>
@@ -189,15 +192,48 @@ export default function Index() {
       </Sec>
 
       {/* ════ 03 FORMAT ════ */}
-      <Sec id="format" num="03" title="Форматы офисов" sub="Нарезка от 9 м² — максимальная ликвидность" dark>
+      <Sec id="format" num="03" title="Форматы офисов" sub="Нарезка от 9 м² — уникально для рынка центра Москвы" dark>
+        {/* Две аудитории */}
+        <div className="reveal grid md:grid-cols-2 gap-4 mb-8">
+          <div className="p-6 bg-black border border-gold/40 relative overflow-hidden">
+            <span className="font-display font-700 text-[5rem] text-gold/6 absolute top-0 right-2 leading-none">01</span>
+            <div className="w-10 h-10 gold-gradient flex items-center justify-center mb-4">
+              <Icon name="TrendingUp" size={18} className="text-black" />
+            </div>
+            <p className="font-display font-600 text-2xl tracking-wide mb-2">Инвестор в проект</p>
+            <p className="text-xs text-muted-foreground leading-relaxed font-sans mb-4">
+              Вкладывает всю сумму в проект целиком. Получает доход за счёт капитализации при дооснащении объекта — ROI 20,39% без учёта арендного дохода.
+            </p>
+            <div className="flex items-center gap-2 text-xs font-sans text-gold">
+              <Icon name="Check" size={12} />
+              <span>Условия входа — полное финансирование проекта (417,4 млн ₽)</span>
+            </div>
+          </div>
+          <div className="p-6 bg-black border border-border relative overflow-hidden">
+            <span className="font-display font-700 text-[5rem] text-gold/6 absolute top-0 right-2 leading-none">02</span>
+            <div className="w-10 h-10 gold-gradient flex items-center justify-center mb-4">
+              <Icon name="Building2" size={18} className="text-black" />
+            </div>
+            <p className="font-display font-600 text-2xl tracking-wide mb-2">Конечный покупатель офиса</p>
+            <p className="text-xs text-muted-foreground leading-relaxed font-sans mb-4">
+              Приобретает готовый офис от 6,5 млн ₽ — для собственного использования или как готовый арендный бизнес под управлением УК AMI Group.
+            </p>
+            <div className="flex items-center gap-2 text-xs font-sans text-gold">
+              <Icon name="Check" size={12} />
+              <span>Сдача через УК — от 45 000 ₽/рабочее место в месяц</span>
+            </div>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-3 gap-5 mb-8">
           {[
-            { size: '9–16 м²',  t: 'Микро',    d: 'ИП, фрилансеры, малые команды. Самый быстрый в продаже.' },
-            { size: '17–25 м²', t: 'Стандарт', d: 'Команды 3–6 человек, оптимальное соотношение цены и площади.' },
-            { size: '30–37 м²', t: 'Комфорт',  d: 'Представительские офисы, команды до 10 человек.' },
+            { size: '6,5 млн ₽',  t: 'от 9–16 м²',    d: 'Самые ликвидные лоты — огромный спрос. Идеальны для аренды одного-двух рабочих мест через УК.', hot: true },
+            { size: '~17 млн ₽', t: '17–25 м²', d: 'Для команд 3–6 человек или сдачи 3–4 рабочих мест. Оптимальное соотношение цены и доходности.' },
+            { size: '30,2 млн ₽', t: '30–37 м²', d: 'Представительские офисы для команд до 10 человек. Премиум-сегмент — для собственного использования или максимальной аренды.' },
           ].map((c, i) => (
-            <div key={c.t} className="reveal p-7 bg-card border border-border hover:border-gold/40 transition group" style={{ transitionDelay: `${i * 80}ms` }}>
-              <p className="font-display font-600 text-4xl gold-text-gradient mb-2">{c.size}</p>
+            <div key={c.t} className={`reveal p-7 bg-card border hover:border-gold/40 transition group relative overflow-hidden ${c.hot ? 'border-gold/50' : 'border-border'}`} style={{ transitionDelay: `${i * 80}ms` }}>
+              {c.hot && <span className="absolute top-3 right-3 gold-gradient text-[9px] font-sans tracking-widest text-black px-2 py-0.5 uppercase">Хит продаж</span>}
+              <p className="font-display font-600 text-4xl gold-text-gradient mb-1">{c.size}</p>
               <p className="font-display font-500 text-xl mb-2 group-hover:text-gold transition tracking-wide">{c.t}</p>
               <p className="text-xs text-muted-foreground leading-relaxed font-sans">{c.d}</p>
             </div>
@@ -265,7 +301,7 @@ export default function Index() {
           <div className="absolute bottom-6 left-6 max-w-xs">
             <p className="font-display font-600 text-2xl italic text-white mb-1">Дизайнерский коридор</p>
             <p className="font-display font-700 text-3xl gold-text-gradient">Стабильный арендный поток</p>
-            <p className="text-xs text-muted-foreground font-sans mt-1">Заполняемость — 100% · 31 офис</p>
+            <p className="text-xs text-muted-foreground font-sans mt-1">Рабочее место от 40–45 тыс ₽/мес · 31 офис · 100% заполняемость</p>
           </div>
         </div>
       </Sec>
@@ -281,19 +317,26 @@ export default function Index() {
             />
           </div>
         </div>
-        <div className="reveal grid md:grid-cols-3 gap-4">
+        <div className="reveal grid md:grid-cols-4 gap-4">
           <div className="flex items-start gap-3 p-4 bg-card border border-border">
-            <span className="w-4 h-4 shrink-0 mt-0.5 border-2 border-[#22c55e] bg-[#22c55e]/20" />
+            <span className="w-4 h-4 shrink-0 mt-0.5 border-2 border-[#22c55e] bg-[#22c55e]/30" />
             <div>
-              <p className="font-sans text-xs font-600 text-foreground">Свободные офисы</p>
-              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Доступны к покупке прямо сейчас</p>
+              <p className="font-sans text-xs font-600 text-foreground">Зелёные офисы</p>
+              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Ремонт завершён — готовы к сдаче и перепродаже прямо сейчас</p>
             </div>
           </div>
           <div className="flex items-start gap-3 p-4 bg-card border border-border">
-            <span className="w-4 h-4 shrink-0 mt-0.5 border-2 border-[#38bdf8] bg-[#38bdf8]/20" />
+            <span className="w-4 h-4 shrink-0 mt-0.5 border-2 border-[#9ca3af] bg-[#9ca3af]/20" />
             <div>
-              <p className="font-sans text-xs font-600 text-foreground">Зарезервированные</p>
-              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Находятся на стадии оформления</p>
+              <p className="font-sans text-xs font-600 text-foreground">Серые офисы</p>
+              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">В процессе ремонта и оснащения</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 p-4 bg-card border border-border">
+            <Icon name="Clock" size={14} className="text-gold shrink-0 mt-0.5" />
+            <div>
+              <p className="font-sans text-xs font-600 text-foreground">Кадастровые номера</p>
+              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Получение выписок — в течение 2 недель</p>
             </div>
           </div>
           <div className="flex items-start gap-3 p-4 bg-card border border-border">
@@ -372,7 +415,7 @@ export default function Index() {
             <div className="mt-5 space-y-3">
               {[
                 { l: 'Срок проекта', v: '5 мес.' },
-                { l: 'Ставка аренды', v: '82 469 ₽/м²' },
+                { l: 'Аренда рабочего места', v: '40–45 тыс/мес' },
                 { l: 'Заполняемость', v: '100%' },
               ].map((r) => (
                 <div key={r.l} className="flex justify-between text-xs font-sans">
@@ -478,12 +521,12 @@ export default function Index() {
       </Sec>
 
       {/* ════ 07 REALIZATION ════ */}
-      <Sec id="realization" num="07" title="Реализация" sub="Три шага от покупки до продажи" dark>
+      <Sec id="realization" num="07" title="Реализация" sub="Три этапа от покупки до стабильного дохода" dark>
         <div className="grid md:grid-cols-3 gap-5">
           {[
-            { n: '01', icon: 'Search',     t: 'Покупка',       d: 'Приобретение здания, юридическая проверка DD, подготовка документов к сделке.' },
-            { n: '02', icon: 'Hammer',     t: 'Реконцепция',   d: 'Нарезка офисов, продающий ремонт, дизайнерские входные зоны и кухня.' },
-            { n: '03', icon: 'HandCoins',  t: 'Продажа',       d: 'Маркетинг, реализация 31 офиса, передача помещений покупателям.' },
+            { n: '01', icon: 'Key',         t: 'Покупка',       d: 'Приобретение здания, юридическая проверка (DD), получение выписок и кадастровых номеров на каждый офис — 1–2 месяца.' },
+            { n: '02', icon: 'Sofa',        t: 'Оснащение',     d: 'Декорирование и меблировка офисов параллельно с маркетингом. Переговорная и кухня уже готовы.' },
+            { n: '03', icon: 'HandCoins',   t: 'Продажа / Сдача', d: 'Реализация как готового офиса для собственного использования, так и готового арендного бизнеса с УК AMI Group. Сдача рабочих мест от 40–45 тыс ₽/мес.' },
           ].map((s, i) => (
             <div key={s.n} className="reveal p-7 bg-card border border-border relative" style={{ transitionDelay: `${i * 90}ms` }}>
               <span className="font-display font-700 text-[5rem] text-gold/8 absolute top-2 right-4 leading-none">{s.n}</span>
@@ -498,19 +541,20 @@ export default function Index() {
       </Sec>
 
       {/* ════ 08 TERMS ════ */}
-      <Sec id="terms" num="08" title="Условия входа" sub="Прозрачные условия для инвестора">
+      <Sec id="terms" num="08" title="Условия входа" sub="Инвестор финансирует проект целиком">
         <div className="grid lg:grid-cols-2 gap-6">
           <div className="reveal p-8 bg-card border border-gold/35">
-            <p className="text-[9px] tracking-widest text-muted-foreground uppercase font-sans mb-2">Минимальный порог входа</p>
-            <p className="font-display font-600 text-5xl gold-text-gradient mb-6">от 5 млн ₽</p>
+            <p className="text-[9px] tracking-widest text-muted-foreground uppercase font-sans mb-2">Объём финансирования проекта</p>
+            <p className="font-display font-600 text-5xl gold-text-gradient mb-1">417,4 млн ₽</p>
+            <p className="text-xs text-muted-foreground font-sans mb-6">Инвестор входит на весь проект. Два транша: 60% / 40%.</p>
             <div className="space-y-4 mb-6">
               {[
-                'Доля в проекте пропорционально вложениям',
-                'Юридическое сопровождение AMI Group',
+                'Юридическое сопровождение AMI Group на всех этапах',
                 'Прозрачная финансовая отчётность',
                 'Фиксация условий в инвестиционном договоре',
-                'Залог — актив в собственности',
+                'Залог — актив (здание) в собственности',
                 'Полный пакет документов',
+                'ROI рассчитан только за счёт капитализации — без арендного дохода',
               ].map((t) => (
                 <div key={t} className="flex items-start gap-3">
                   <Icon name="Check" size={14} className="text-gold shrink-0 mt-0.5" />
@@ -519,21 +563,24 @@ export default function Index() {
               ))}
             </div>
             <Button
-              onClick={() => scrollTo('final')}
               className="w-full gold-gradient text-black hover:opacity-90 font-sans tracking-wide rounded-none"
+              asChild
             >
-              Получить полный пакет документов
+              <a href="https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5031d015-d9e3-4f90-bdc8-7d75ee0c94db.PNG" target="_blank" rel="noopener noreferrer">
+                <Icon name="Download" size={14} className="mr-2" />
+                Скачать полную презентацию
+              </a>
             </Button>
           </div>
 
           <div className="reveal grid grid-cols-2 gap-3 content-start">
             {[
-              { v: '24,5%', l: 'Доходность инвестора', sub: 'годовых' },
-              { v: '20,39%', l: 'Прогнозируемый ROI', sub: '' },
-              { v: '5 мес.', l: 'Срок проекта', sub: '' },
-              { v: '60/40', l: 'Транши освоения', sub: '' },
-              { v: '417,4', l: 'Инвестиций', sub: 'млн ₽' },
-              { v: '531,4', l: 'Выручка', sub: 'млн ₽' },
+              { v: '417,4', l: 'Объём инвестиций', sub: 'млн ₽' },
+              { v: '531,4', l: 'Выручка от продаж', sub: 'млн ₽' },
+              { v: '24,5%', l: 'Доходность инвестора', sub: 'год' },
+              { v: '20,39%', l: 'ROI проекта', sub: '' },
+              { v: 'от 6,5', l: 'Стоимость офиса', sub: 'млн ₽' },
+              { v: '45 тыс', l: 'Аренда рабочего места', sub: '₽/мес' },
             ].map((s) => (
               <div key={s.l} className="p-5 bg-black border border-border text-center">
                 <p className="font-display font-600 text-2xl gold-text-gradient leading-none">
@@ -552,10 +599,10 @@ export default function Index() {
         <div className="relative">
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border" />
           {[
-            { q: 'Мес. 1',   t: 'Получение инвестиций, DD, покупка объекта',       s: 'done'   },
-            { q: 'Мес. 2–3', t: 'Проектирование, согласования, разрешительная документация', s: 'active' },
-            { q: 'Мес. 3–5', t: 'Ремонт, отделка, меблировка, брендирование',      s: 'next'   },
-            { q: 'Мес. 1–5', t: 'Маркетинг и продажа 31 офиса (5–10 в месяц)',     s: 'next'   },
+            { q: 'Мес. 1–2',  t: 'Получение инвестиций, DD, покупка объекта. Получение выписок и кадастровых номеров на 31 офис.',  s: 'done'   },
+            { q: 'Мес. 1–2',  t: 'Оснащение: декорирование и меблировка офисов. Переговорная и кухня уже завершены.',               s: 'active' },
+            { q: 'Мес. 1–5',  t: 'Маркетинг и продажа 31 офиса параллельно с ремонтом. Заселение арендаторов через УК.',            s: 'next'   },
+            { q: 'Итог',      t: 'Конечный покупатель получает готовый офис для себя или арендный бизнес с управляющей компанией.', s: 'next'   },
           ].map((it, i) => (
             <div key={it.q} className={`reveal relative flex md:items-center mb-7 last:mb-0 ${i % 2 ? 'md:flex-row-reverse' : ''}`}>
               <div className="md:w-1/2 pl-10 md:pl-0 md:px-8">
@@ -586,9 +633,11 @@ export default function Index() {
               24,5% годовых, ROI 20,39%, срок реализации — 5 месяцев.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="gold-gradient text-black hover:opacity-90 font-sans tracking-wide rounded-none">
-                <Icon name="FileText" size={16} className="mr-2" />
-                Запросить презентацию
+              <Button size="lg" className="gold-gradient text-black hover:opacity-90 font-sans tracking-wide rounded-none" asChild>
+                <a href="https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5031d015-d9e3-4f90-bdc8-7d75ee0c94db.PNG" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Download" size={16} className="mr-2" />
+                  Скачать презентацию
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="border-gold/40 text-gold hover:bg-gold/10 font-sans tracking-wide rounded-none">
                 <Icon name="Phone" size={16} className="mr-2" />
