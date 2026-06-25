@@ -18,7 +18,14 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				display: ['Oswald', 'sans-serif'],
+				sans: ['IBM Plex Sans', 'sans-serif'],
+			},
 			colors: {
+				gold: 'hsl(var(--gold))',
+				'gold-bright': 'hsl(var(--gold-bright))',
+				'navy-deep': 'hsl(var(--navy-deep))',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
