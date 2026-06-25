@@ -19,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['Oswald', 'sans-serif'],
+				display: ['Cormorant Garamond', 'serif'],
 				sans: ['IBM Plex Sans', 'sans-serif'],
 			},
 			colors: {
