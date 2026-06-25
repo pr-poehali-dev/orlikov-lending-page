@@ -3,8 +3,8 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
 const HERO_IMG = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/files/357df6d4-1e53-4779-88f1-51d65869a89e.jpg';
-const OFFICE_IMG = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/files/f6c0343b-c3af-43f7-aadb-372663becf84.jpg';
-const DETAIL_IMG = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/files/da3776f5-b661-4c2e-8cf1-9c16a69791a8.jpg';
+const OFFICE_IMG = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/96e23f9b-3a49-4701-9020-97bc95f55c2f.PNG';
+const DETAIL_IMG = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/96e23f9b-3a49-4701-9020-97bc95f55c2f.PNG';
 
 const nav = [
   { id: 'hero', label: '01' },
@@ -89,14 +89,14 @@ const Index = () => {
               <span className="gold-text-gradient">ПЕРЕУЛОК</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
-              Редевелопмент офисных площадей в шаге от станции «Красные ворота». 
-              Покупка, реконцепция и продажа мини-офисов с высокой доходностью.
+              Редевелопмент офисных площадей в 5 минутах от станции «Красные ворота». 
+              Покупка, реконцепция и продажа 31 мини-офиса с высокой доходностью.
             </p>
             <div className="flex flex-wrap gap-10 mb-12">
               {[
-                { v: 'от 13 м²', l: 'нарезка офисов' },
-                { v: '1 мин', l: 'до метро' },
-                { v: 'ЦАО', l: 'Москва' },
+                { v: 'от 9 м²', l: 'нарезка офисов' },
+                { v: '5 мин', l: 'до метро' },
+                { v: '31 офис', l: 'к продаже' },
               ].map((s) => (
                 <div key={s.l}>
                   <p className="font-display font-700 text-3xl md:text-4xl gold-text-gradient">{s.v}</p>
@@ -125,7 +125,7 @@ const Index = () => {
           <div className="reveal">
             <div className="space-y-6">
               {[
-                { icon: 'Train', t: 'Красные ворота', d: 'Сокольническая линия — 1 минута пешком' },
+                { icon: 'Train', t: 'Красные ворота', d: 'Сокольническая линия — 5 минут пешком' },
                 { icon: 'MapPin', t: 'Орликов переулок', d: 'Центральный административный округ, Москва' },
                 { icon: 'Landmark', t: 'Деловое окружение', d: 'Три вокзала, Садовое кольцо, бизнес-центры класса А' },
                 { icon: 'TrendingUp', t: 'Растущий спрос', d: 'Дефицит качественных малых офисов в локации' },
@@ -164,9 +164,9 @@ const Index = () => {
       <Section id="format" num="03" title="Формат офисов" sub="Правильная нарезка — основа доходности" dark>
         <div className="grid lg:grid-cols-3 gap-6 mb-10">
           {[
-            { size: '13–20 м²', t: 'Компактные', d: 'Для стартапов, ИП и небольших команд. Самый востребованный формат.' },
-            { size: '20–35 м²', t: 'Стандарт', d: 'Оптимальный баланс площади и цены для растущего бизнеса.' },
-            { size: '35–45 м²', t: 'Премиум', d: 'Просторные офисы для команд и представительств компаний.' },
+            { size: 'от 9 м²', t: 'Компактные', d: 'Для стартапов, ИП и небольших команд. Самый востребованный формат.' },
+            { size: '17–25 м²', t: 'Стандарт', d: 'Оптимальный баланс площади и цены для растущего бизнеса.' },
+            { size: '35–37 м²', t: 'Премиум', d: 'Просторные офисы для команд и представительств компаний.' },
           ].map((c, i) => (
             <div key={c.t} className="reveal p-8 bg-card border border-border rounded-sm hover:border-gold/50 transition group" style={{ transitionDelay: `${i * 80}ms` }}>
               <p className="font-display font-700 text-4xl gold-text-gradient mb-3">{c.size}</p>
@@ -246,10 +246,10 @@ const Index = () => {
       <Section id="economy" num="06" title="Экономика проекта" sub="Финансовый потенциал инвестиций">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
           {[
-            { v: '120 млн ₽', l: 'Объём инвестиций', icon: 'Wallet' },
-            { v: '+45%', l: 'Прирост стоимости', icon: 'TrendingUp' },
-            { v: '32%', l: 'Целевая доходность', icon: 'PiggyBank' },
-            { v: '14 мес', l: 'Срок проекта', icon: 'Clock' },
+            { v: '417,4 млн ₽', l: 'Объём инвестиций', icon: 'Wallet' },
+            { v: '531,4 млн ₽', l: 'Выручка от продаж', icon: 'TrendingUp' },
+            { v: '648,6 м²', l: 'Полезная площадь', icon: 'Ruler' },
+            { v: '31 офис', l: 'Объектов к продаже', icon: 'Building2' },
           ].map((s, i) => (
             <div key={s.l} className="reveal p-7 bg-card border border-border rounded-sm relative overflow-hidden group" style={{ transitionDelay: `${i * 70}ms` }}>
               <Icon name={s.icon} size={28} className="text-gold/30 absolute top-4 right-4 group-hover:text-gold/60 transition" />
@@ -260,11 +260,11 @@ const Index = () => {
         </div>
         <div className="reveal grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 p-8 bg-card border border-border rounded-sm">
-            <p className="font-display font-600 tracking-wide text-lg mb-6">Структура доходности</p>
+            <p className="font-display font-600 tracking-wide text-lg mb-6">Структура проекта</p>
             {[
-              { l: 'Покупка площадей', v: 70, val: '70 %' },
-              { l: 'Реконцепция и ремонт', v: 18, val: '18 %' },
-              { l: 'Маржа проекта', v: 32, val: '+32 %', gold: true },
+              { l: 'Инвестиции (покупка + CAPEX)', v: 79, val: '417,4 млн ₽' },
+              { l: 'Выручка от продаж', v: 100, val: '531,4 млн ₽' },
+              { l: 'Валовая прибыль', v: 21, val: '+114 млн ₽', gold: true },
             ].map((b) => (
               <div key={b.l} className="mb-5 last:mb-0">
                 <div className="flex justify-between text-sm mb-2">
@@ -278,9 +278,9 @@ const Index = () => {
             ))}
           </div>
           <div className="p-8 bg-navy-deep border border-gold/40 rounded-sm flex flex-col justify-center text-center">
-            <p className="text-xs tracking-widest text-muted-foreground uppercase mb-2">Расчётная прибыль</p>
-            <p className="font-display font-700 text-5xl gold-text-gradient mb-2">~38 млн ₽</p>
-            <p className="text-sm text-muted-foreground">на горизонте проекта</p>
+            <p className="text-xs tracking-widest text-muted-foreground uppercase mb-2">Валовая прибыль</p>
+            <p className="font-display font-700 text-5xl gold-text-gradient mb-2">~114 млн ₽</p>
+            <p className="text-sm text-muted-foreground">за ~14 месяцев проекта</p>
           </div>
         </div>
       </Section>
@@ -327,9 +327,9 @@ const Index = () => {
           </div>
           <div className="reveal grid grid-cols-2 gap-4 content-start">
             {[
-              { v: '32%', l: 'Доходность' },
+              { v: '~27%', l: 'Доходность' },
               { v: '14 мес', l: 'Срок' },
-              { v: '100%', l: 'Залог — актив' },
+              { v: '60/40', l: 'Транши' },
               { v: 'ЦАО', l: 'Локация' },
             ].map((s) => (
               <div key={s.l} className="p-7 bg-navy-deep border border-border rounded-sm text-center">
@@ -346,10 +346,10 @@ const Index = () => {
         <div className="relative">
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border" />
           {[
-            { q: 'Q1 2026', t: 'Подбор и покупка объекта', s: 'done' },
-            { q: 'Q2 2026', t: 'Проектирование и согласования', s: 'active' },
-            { q: 'Q3 2026', t: 'Реконцепция и ремонт', s: 'next' },
-            { q: 'Q1 2027', t: 'Продажа мини-офисов', s: 'next' },
+            { q: 'Мес. 1', t: 'Инвестиции, DD, покупка объекта', s: 'done' },
+            { q: 'Мес. 2–3', t: 'Проектирование и согласования', s: 'active' },
+            { q: 'Мес. 4–6', t: 'Реконцепция, ремонт, отделка', s: 'next' },
+            { q: 'Мес. 1–7', t: 'Продажа 31 офиса (5–10 в месяц)', s: 'next' },
           ].map((it, i) => (
             <div key={it.q} className={`reveal relative flex md:items-center mb-8 last:mb-0 ${i % 2 ? 'md:flex-row-reverse' : ''}`}>
               <div className="md:w-1/2 pl-12 md:pl-0 md:px-10">
