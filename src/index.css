@@ -161,24 +161,92 @@
 @media print {
   @page {
     size: A4 landscape;
-    margin: 10mm;
+    margin: 8mm 12mm;
   }
+
+  /* Скрываем навигацию и служебные элементы */
   header,
   nav,
-  .no-print {
+  .no-print,
+  button.absolute {
     display: none !important;
   }
+
+  /* Анимации — сбросить */
   .reveal {
     opacity: 1 !important;
     transform: none !important;
   }
-  body,
-  html {
-    background: #fff !important;
-    color: #111 !important;
+
+  /* Сохраняем тёмный стиль */
+  html,
+  body {
+    background: #0d0d0d !important;
+    color: #e8e0d0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
+
+  /* Каждая секция — отдельная страница */
   section {
+    page-break-after: always;
+    break-after: page;
     page-break-inside: avoid;
     break-inside: avoid;
+    min-height: 0 !important;
+    padding: 24px 0 !important;
+  }
+
+  section:last-of-type {
+    page-break-after: auto;
+  }
+
+  /* Контейнер — полная ширина */
+  .container {
+    max-width: 100% !important;
+    padding: 0 8px !important;
+  }
+
+  /* Карта — скрыть iframe, показать только адресную карточку */
+  iframe {
+    display: none !important;
+  }
+
+  /* Сетки на печати */
+  .grid {
+    display: grid !important;
+  }
+
+  /* Фиксируем фоновые цвета карточек */
+  .bg-card,
+  .bg-black {
+    background: #111 !important;
+    border: 1px solid #333 !important;
+  }
+
+  /* Золотой текст — сохранить */
+  .gold-text-gradient {
+    background: linear-gradient(135deg, #c9a84c, #f0d080) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  /* Кнопки скрыть */
+  button,
+  a[role="button"] {
+    display: none !important;
+  }
+
+  /* Изображения — не разрывать */
+  img {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    max-height: 280px !important;
+    object-fit: contain !important;
+  }
+
+  /* Поэтажный план — чуть больше места */
+  #floor-plan img {
+    max-height: 360px !important;
   }
 }

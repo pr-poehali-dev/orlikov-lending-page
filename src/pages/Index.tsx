@@ -190,7 +190,7 @@ export default function Index() {
               title="Карта"
               className="w-full h-full"
               style={{ filter: 'invert(0.88) hue-rotate(180deg) saturate(0.6) brightness(0.95)' }}
-              src="https://yandex.ru/map-widget/v1/?ll=37.6512%2C55.7706&z=17&pt=37.6512,55.7706,pm2rdm"
+              src="https://yandex.ru/map-widget/v1/?ll=37.6488%2C55.7718&z=17&pt=37.6488,55.7718,pm2rdm&text=%D0%9E%D1%80%D0%BB%D0%B8%D0%BA%D0%BE%D0%B2+%D0%BF%D0%B5%D1%80%D0%B5%D1%83%D0%BB%D0%BE%D0%BA+%D0%B43+%D1%81%D1%821"
               loading="lazy"
             />
             <div className="absolute top-4 left-4 bg-black/90 backdrop-blur border border-gold/40 px-4 py-2">
@@ -212,7 +212,7 @@ export default function Index() {
             </div>
             <p className="font-display font-600 text-2xl tracking-wide mb-2">Инвестор в проект</p>
             <p className="text-xs text-muted-foreground leading-relaxed font-sans mb-4">
-              Вкладывает всю сумму в проект целиком. Получает доход за счёт капитализации при дооснащении объекта — ROI 20,39% без учёта арендного дохода.
+              Финансирует проект полностью. Зарабатывает на росте стоимости объекта: здание покупается «вчерне», а после раскадастрирования (выделения отдельных кадастровых номеров) и дооснащения офисов их суммарная рыночная цена значительно превышает стоимость покупки — отсюда ROI 20,39% ещё до получения арендных платежей.
             </p>
             <div className="flex items-center gap-2 text-xs font-sans text-gold">
               <Icon name="Check" size={12} />
@@ -273,15 +273,15 @@ export default function Index() {
             { icon: 'Shield',   t: 'Охрана и контроль доступа' },
           ].map((it) => (
             <div key={it.t} className="flex items-center gap-3 p-3.5 bg-black border border-border">
-              <Icon name={it.icon} size={16} className="text-gold shrink-0" />
-              <span className="text-xs font-sans tracking-wide">{it.t}</span>
+              <Icon name={it.icon} size={18} className="text-gold shrink-0" />
+              <span className="text-sm font-sans tracking-wide">{it.t}</span>
             </div>
           ))}
         </div>
       </Sec>
 
-      {/* ════ 04 GALLERY — реальные фото ════ */}
-      <Sec id="gallery" num="04" title="Объект" sub="Реальные фотографии">
+      {/* ════ 04 GALLERY — фото объекта ════ */}
+      <Sec id="gallery" num="04" title="Объект" sub="Фотографии объекта">
         {/* 3 фото в сетке */}
         <div className="grid md:grid-cols-3 gap-3 mb-3">
           <div className="reveal relative overflow-hidden border border-gold/35 group md:col-span-2">
@@ -328,32 +328,32 @@ export default function Index() {
           </div>
         </div>
         <div className="reveal grid md:grid-cols-4 gap-4">
-          <div className="flex items-start gap-3 p-4 bg-card border border-border">
-            <span className="w-4 h-4 shrink-0 mt-0.5 border-2 border-[#22c55e] bg-[#22c55e]/30" />
+          <div className="flex items-start gap-3 p-4 bg-card border border-[#eab308]/50">
+            <span className="w-4 h-4 shrink-0 mt-0.5 border-2 border-[#eab308] bg-[#eab308]/40" />
             <div>
-              <p className="font-sans text-xs font-600 text-foreground">Зелёные офисы</p>
-              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Ремонт завершён — готовы к сдаче и перепродаже прямо сейчас</p>
+              <p className="font-sans text-sm font-600 text-foreground">Жёлтые офисы</p>
+              <p className="font-sans text-xs text-muted-foreground mt-0.5">Ремонт завершён — готовы к сдаче и перепродаже прямо сейчас</p>
             </div>
           </div>
           <div className="flex items-start gap-3 p-4 bg-card border border-border">
             <span className="w-4 h-4 shrink-0 mt-0.5 border-2 border-[#9ca3af] bg-[#9ca3af]/20" />
             <div>
-              <p className="font-sans text-xs font-600 text-foreground">Серые офисы</p>
-              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">В процессе ремонта и оснащения</p>
+              <p className="font-sans text-sm font-600 text-foreground">Остальные офисы</p>
+              <p className="font-sans text-xs text-muted-foreground mt-0.5">В процессе ремонта и оснащения</p>
             </div>
           </div>
           <div className="flex items-start gap-3 p-4 bg-card border border-border">
-            <Icon name="Clock" size={14} className="text-gold shrink-0 mt-0.5" />
+            <Icon name="Clock" size={16} className="text-gold shrink-0 mt-0.5" />
             <div>
-              <p className="font-sans text-xs font-600 text-foreground">Кадастровые номера</p>
-              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Получение выписок — в течение 2 недель</p>
+              <p className="font-sans text-sm font-600 text-foreground">Кадастровые номера</p>
+              <p className="font-sans text-xs text-muted-foreground mt-0.5">Получение выписок — в течение 2 недель</p>
             </div>
           </div>
           <div className="flex items-start gap-3 p-4 bg-card border border-border">
-            <Icon name="MapPin" size={14} className="text-gold shrink-0 mt-0.5" />
+            <Icon name="MapPin" size={16} className="text-gold shrink-0 mt-0.5" />
             <div>
-              <p className="font-sans text-xs font-600 text-foreground">м. Красные ворота — 350 м</p>
-              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Садовое кольцо — 150 м · МЦД 9 мин</p>
+              <p className="font-sans text-sm font-600 text-foreground">м. Красные ворота — 350 м</p>
+              <p className="font-sans text-xs text-muted-foreground mt-0.5">Садовое кольцо — 150 м · МЦД 9 мин</p>
             </div>
           </div>
         </div>
