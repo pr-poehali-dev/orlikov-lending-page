@@ -3,9 +3,11 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
 // Реальные фото объекта
-const TIZER_IMG   = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5031d015-d9e3-4f90-bdc8-7d75ee0c94db.PNG';
-const LIFT_IMG    = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/2d16bd15-0aef-42ed-b91e-f1573c5fcefd.PNG';
-const KITCHEN_IMG = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/96e23f9b-3a49-4701-9020-97bc95f55c2f.PNG';
+const TIZER_IMG        = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5031d015-d9e3-4f90-bdc8-7d75ee0c94db.PNG';
+const MEETING_IMG      = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/5bdab066-7128-4411-9e59-3a48401f2599.PNG';
+const OFFICE_IMG       = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/031c5641-f2fa-4b18-a6f7-ff94706695ed.PNG';
+const CORRIDOR_IMG     = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/af78b587-6fd5-4cb6-9b8b-5b0ee78353cd.PNG';
+const FLOOR_PLAN_IMG   = 'https://cdn.poehali.dev/projects/c4931b79-a403-4476-b080-f3cb432215a4/bucket/a6354a7d-0b4f-49d4-93c2-20a43e3a4eb2.png';
 
 // Офисы из финмодели — план продаж
 const SALES_PLAN = [
@@ -21,6 +23,7 @@ const navItems = [
   { id: 'map',         label: '02', title: 'Локация' },
   { id: 'format',      label: '03', title: 'Офисы' },
   { id: 'gallery',     label: '04', title: 'Объект' },
+  { id: 'floor-plan',  label: '04b', title: 'План этажа' },
   { id: 'economy',     label: '05', title: 'Экономика' },
   { id: 'sales-plan',  label: '06', title: 'План продаж' },
   { id: 'realization', label: '07', title: 'Реализация' },
@@ -233,38 +236,72 @@ export default function Index() {
 
       {/* ════ 04 GALLERY — реальные фото ════ */}
       <Sec id="gallery" num="04" title="Объект" sub="Реальные фотографии">
-        <div className="grid md:grid-cols-2 gap-5 mb-5">
-          {/* Лифтовый холл (было) */}
-          <div className="reveal relative overflow-hidden border border-border group">
-            <img src={LIFT_IMG} alt="Входная группа и лифты" className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+        {/* 3 фото в сетке */}
+        <div className="grid md:grid-cols-3 gap-3 mb-3">
+          <div className="reveal relative overflow-hidden border border-gold/35 group md:col-span-2">
+            <img src={MEETING_IMG} alt="Переговорная комната" className="w-full aspect-[16/9] object-cover group-hover:scale-105 transition duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4">
-              <span className="text-[9px] tracking-widest text-muted-foreground font-sans uppercase">Входная группа</span>
-              <p className="font-display text-lg text-white">Лифтовый холл</p>
-            </div>
-            <span className="absolute top-3 right-3 border border-border bg-black/80 text-[9px] font-sans tracking-widest text-muted-foreground px-2 py-1 uppercase">Исходное состояние</span>
-          </div>
-
-          {/* Кухня (стало) */}
-          <div className="reveal relative overflow-hidden border border-gold/35 group" style={{ transitionDelay: '80ms' }}>
-            <img src={KITCHEN_IMG} alt="Дизайнерская кухня" className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-            <div className="absolute bottom-4 left-4">
-              <span className="text-[9px] tracking-widest text-gold/70 font-sans uppercase">После реконцепции</span>
-              <p className="font-display text-lg text-white">Дизайнерская кухня</p>
+              <span className="text-[9px] tracking-widest text-gold/70 font-sans uppercase">Переговорная</span>
+              <p className="font-display text-xl text-white">Конференц-зал</p>
             </div>
             <span className="absolute top-3 right-3 gold-gradient text-[9px] font-sans tracking-widest text-black px-2 py-1 uppercase">Готовый результат</span>
           </div>
+
+          <div className="reveal relative overflow-hidden border border-border group" style={{ transitionDelay: '80ms' }}>
+            <img src={OFFICE_IMG} alt="Рабочий офис AMI Group" className="w-full aspect-[4/3] md:h-full object-cover group-hover:scale-105 transition duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4">
+              <span className="text-[9px] tracking-widest text-muted-foreground font-sans uppercase">Офис</span>
+              <p className="font-display text-lg text-white">Рабочее пространство</p>
+            </div>
+          </div>
         </div>
 
-        {/* Тизер-превью */}
+        {/* Коридор — полная ширина */}
         <div className="reveal relative overflow-hidden border border-border group">
-          <img src={TIZER_IMG} alt="Тизер проекта" className="w-full max-h-[500px] object-cover object-top group-hover:scale-[1.02] transition duration-700" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+          <img src={CORRIDOR_IMG} alt="Коридор" className="w-full max-h-[420px] object-cover group-hover:scale-[1.02] transition duration-700" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-transparent to-transparent" />
           <div className="absolute bottom-6 left-6 max-w-xs">
-            <p className="font-display font-600 text-2xl italic text-white mb-1">Ставка аренды</p>
-            <p className="font-display font-700 text-4xl gold-text-gradient">82 469 ₽/м²/год</p>
-            <p className="text-xs text-muted-foreground font-sans mt-1">Заполняемость — 100%</p>
+            <p className="font-display font-600 text-2xl italic text-white mb-1">Дизайнерский коридор</p>
+            <p className="font-display font-700 text-3xl gold-text-gradient">Стабильный арендный поток</p>
+            <p className="text-xs text-muted-foreground font-sans mt-1">Заполняемость — 100% · 31 офис</p>
+          </div>
+        </div>
+      </Sec>
+
+      {/* ════ 04b FLOOR PLAN ════ */}
+      <Sec id="floor-plan" num="04b" title="Поэтажный план" sub="Планировка 4-го этажа · 31 офис">
+        <div className="reveal mb-6">
+          <div className="border border-gold/30 overflow-hidden bg-white p-2">
+            <img
+              src={FLOOR_PLAN_IMG}
+              alt="Поэтажный план Орликов пер. 5"
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+        <div className="reveal grid md:grid-cols-3 gap-4">
+          <div className="flex items-start gap-3 p-4 bg-card border border-border">
+            <span className="w-4 h-4 shrink-0 mt-0.5 border-2 border-[#22c55e] bg-[#22c55e]/20" />
+            <div>
+              <p className="font-sans text-xs font-600 text-foreground">Свободные офисы</p>
+              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Доступны к покупке прямо сейчас</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 p-4 bg-card border border-border">
+            <span className="w-4 h-4 shrink-0 mt-0.5 border-2 border-[#38bdf8] bg-[#38bdf8]/20" />
+            <div>
+              <p className="font-sans text-xs font-600 text-foreground">Зарезервированные</p>
+              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Находятся на стадии оформления</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 p-4 bg-card border border-border">
+            <Icon name="MapPin" size={14} className="text-gold shrink-0 mt-0.5" />
+            <div>
+              <p className="font-sans text-xs font-600 text-foreground">м. Красные ворота — 350 м</p>
+              <p className="font-sans text-[11px] text-muted-foreground mt-0.5">Садовое кольцо — 150 м · МЦД 9 мин</p>
+            </div>
           </div>
         </div>
       </Sec>
@@ -534,11 +571,9 @@ export default function Index() {
       </Sec>
 
       {/* ════ 10 FINAL / CTA ════ */}
-      <section id="final" className="relative grain overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={TIZER_IMG} alt="" className="w-full h-full object-cover object-top" />
-          <div className="absolute inset-0 bg-black/92" />
-        </div>
+      <section id="final" className="relative grain overflow-hidden bg-[#060606]">
+        {/* Тонкая золотая полоска сверху */}
+        <div className="h-px w-full gold-gradient opacity-60" />
         <div className="container relative z-10 py-24 text-center">
           <div className="reveal max-w-2xl mx-auto">
             <span className="text-[9px] tracking-[0.35em] text-gold/70 font-sans uppercase">AMI Group · Орликов пер., 5</span>
